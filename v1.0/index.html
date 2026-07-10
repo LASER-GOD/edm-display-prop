@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="app-version" content="1.2.1">
+<title>Work Execution - Process Control</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scaler" id="scaler">
+<div class="stage">
+
+  <!-- TITLE BAR -->
+  <div class="titlebar">
+    <div class="title-block">
+      <h1>Work Execution &ndash; Process Control</h1>
+      <h2 id="pieceTitle">CALIFORNIA LASERS</h2>
+    </div>
+
+    <div class="clockpanel">
+      <canvas id="ledClock"></canvas>
+    </div>
+
+    <div class="coordbox">
+      <div><span>X</span><b id="coordX">123.456</b></div>
+      <div><span>Y</span><b id="coordY">123.456</b></div>
+      <div><span>Z</span><b id="coordZ">123.456</b></div>
+    </div>
+
+    <div class="help-btn">?</div>
+
+    <div class="ribbon">
+      <div class="ribbon-icon" data-bar="yellow">&#9995;</div>
+      <div class="ribbon-icon" data-bar="green">&#128100;</div>
+      <div class="ribbon-icon active" data-bar="purple">&#9889;</div>
+      <div class="ribbon-icon" data-bar="blue">&#128295;</div>
+      <div class="ribbon-icon" data-bar="none">&#128193;</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <div class="left-col">
+
+      <div class="charts-row">
+        <div class="chart-panel">
+          <div class="chart-legend"><span class="swatch"></span>Speed</div>
+          <div class="chart-ylabels">
+            <span id="speedYMax">1181.20</span>
+            <span id="speedYMin">0.00</span>
+          </div>
+          <canvas id="speedChart"></canvas>
+          <div class="chart-xlabels">
+            <span>0</span><span>180</span><span>360</span><span>540</span><span>720</span>
+          </div>
+          <div class="chart-unit">sec.</div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-legend depth-legend" id="depthLegend">H=47.2440 - R=11.0270 - T= 501.23</div>
+          <div class="chart-ylabels">
+            <span>0.00</span>
+            <span id="depthYMin">47.24</span>
+          </div>
+          <canvas id="depthChart"></canvas>
+          <div class="chart-xlabels" id="depthXLabels">
+            <span>8560</span><span>8570</span><span>8580</span><span>8590</span><span>8600</span><span>8610</span><span>8620</span><span>8630</span><span>8640</span>
+          </div>
+          <div class="chart-unit">sec.</div>
+        </div>
+      </div>
+
+      <div class="lower-row">
+        <div class="data-panel">
+          <div class="data-col">
+            <div class="row red"><span>Speed</span><b id="valSpeed">5197.259627</b></div>
+            <div class="row purple"><span>I</span><b id="valI">5.1</b></div>
+            <div class="row purple"><span>U</span><b>120</b></div>
+            <div class="row purple"><span>ACC</span><b>0</b></div>
+            <div class="row purple"><span>Teros</span><b>0.2</b></div>
+            <div class="row purple"><span>TVB</span><b id="valTVB">39.4</b></div>
+            <div class="row purple"><span>FTYPE</span><b>Central</b></div>
+          </div>
+          <div class="data-col">
+            <div class="row blue"><span>Power</span><b>4</b></div>
+            <div class="row blue"><span>P</span><b>20</b></div>
+            <div class="row blue"><span>GAIN</span><b>20</b></div>
+            <div class="row blue"><span>ACCX</span><b>0</b></div>
+            <div class="row blue"><span>Timer</span><b>without</b></div>
+            <div class="row blue"><span>TVPROF</span><b>1</b></div>
+            <div class="row blue"><span>FLP</span><b>5</b></div>
+          </div>
+        </div>
+
+        <div class="float-area">
+          <div class="win xyzwin">
+            <div class="win-title">
+              <div class="win-icons">
+                <span class="wi">&#8853;</span><span class="wi">&#9635;</span><span class="wi">&#10022;</span>
+              </div>
+              <span class="win-x">&times;</span>
+            </div>
+            <div class="xyz-rows">
+              <div><span>Xm</span><b>+00.000000</b></div>
+              <div><span>Ym</span><b>+00.000000</b></div>
+              <div><span>Zm</span><b id="miniZm">-01.025630</b></div>
+              <div><span>Wm</span><b>+00.000000</b></div>
+              <div><span>Am</span><b>+0000.0000</b></div>
+              <div><span>Bm</span><b>+0000.0000</b></div>
+            </div>
+          </div>
+
+          <div class="win zclockwin">
+            <div class="win-title">
+              <span class="win-label">- Z Clock -</span>
+              <span class="win-x">&times;</span>
+            </div>
+            <div class="zclock-body">
+              <button class="reset-z">Reset Z</button>
+              <div class="zreadout"><span id="zBig">-02.574528</span> [ <span id="zOffset">Zos+29.531591</span> ]</div>
+              <svg viewBox="0 0 300 300" class="dial">
+                <circle cx="150" cy="150" r="140" class="dial-rim"/>
+                <circle cx="150" cy="150" r="126" class="dial-face"/>
+                <g id="dialTicks"></g>
+                <g id="dialLabels"></g>
+                <text x="150" y="235" class="dial-brand">+GF+</text>
+                <line id="needle" x1="150" y1="150" x2="150" y2="55" class="needle"/>
+                <circle cx="150" cy="150" r="8" class="hub"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right-rail">
+      <div class="rail-icon">&#9633;</div>
+      <div class="rail-icon">&#9634;</div>
+      <div class="rail-icon">&#9889;</div>
+      <div class="rail-icon active">&#128161;&#9889;</div>
+      <div class="rail-icon">&#128065;</div>
+      <div class="rail-icon">&#9881;</div>
+      <div class="rail-lamps">
+        <span class="lamp green"></span>
+        <span class="lamp red on" id="lampRed"></span>
+        <span class="lamp blue"></span>
+        <span class="lamp gray"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="statusbar">
+    <span>Piece Name: <b id="statusPiece">CALIFORNIA LASERS</b></span>
+    <span>Technology Name: <b>Depth1--1.300000 - t0_040_HOLE_DRILL</b></span>
+    <span>Pulse: <b id="statusPulse">080115963</b></span>
+  </div>
+
+  <!-- LOG BAR -->
+  <div class="logbar">
+    <div class="log-handle">&#8942;&#8942;</div>
+    <div class="log-lines">
+      <div class="log-line" id="logLine1"></div>
+      <div class="log-line" id="logLine2"></div>
+    </div>
+    <div class="log-icons">
+      <div class="log-icon">&#9889;</div>
+      <div class="log-icon">&#128200;</div>
+      <div class="log-icon">&#128337;</div>
+    </div>
+  </div>
+
+  <div class="credit">LASER GOD &middot; www.calasers.com</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+EDM Display Prop - Revision Log
+================================
+
+v1.2.1 (2026-07-10)
+- Shrunk the Z Clock gauge further (dial 250px -> 175px, window
+  320px -> 230px wide) so it sits proportionally in its floating
+  window instead of dominating it.
+
+v1.2.0 (2026-07-10)
+- Switched from the dark sci-fi theme to a light-mode chrome (white/pale
+  blue-gray panels, dark text). The chart panels, LED clock, and log
+  console stay black/dark on purpose - they read as physical "screens"
+  inset into the light housing, same as the reference machine photo.
+  Kept the neon cyan accents, HUD corner brackets, and scan-sweep
+  animation, just re-tuned for contrast on a light background. The
+  analog Z Clock gauge face is now light (like a real gauge) instead
+  of dark.
+
+v1.1.0 (2026-07-10)
+- Auto-update: page now polls version.json every 5 minutes and reloads
+  itself automatically when the "version" field changes, so a kiosk/TV
+  display picks up new deploys with nobody touching it. Bump the
+  "version" value in version.json on every release you push to git.
+- Replaced "SPACEX_MAGNET" placeholder with "CALIFORNIA LASERS" in the
+  title bar and the bottom status bar.
+- Added a live LED dot-matrix clock (HH:MM:SS, blinking colon) in the
+  title bar, using the same 5x7 dot-matrix font and cyan glow palette
+  as the California Lasers Digital Clock app.
+- Z Clock gauge shrunk to fit its floating window properly (dial
+  400px -> 250px, window narrowed) - was oversized before.
+- Sci-fi restyle: dark navy/graphite chrome throughout (was beige
+  Windows-95 gray), neon cyan borders and glow on panels/buttons,
+  HUD corner brackets on the chart panels, a slow radar-style scan
+  sweep and subtle scanline texture over the whole screen, glowing
+  red data readouts, green glowing terminal-style log text.
+- Speed chart (left) now wanders with a real up/down waveform (layered
+  sine + drift) instead of just jittering in place.
+- Depth chart (right) got more visible motion: larger/faster settle
+  variance, a scrolling x-axis time counter, and a live-fluctuating
+  H/R/T legend line.
+
+v1.0 (2026-07-09)
+- Initial release. Static/looping decorative web dashboard modeled on a
+  GF AgieCharmilles-style "Work Execution - Process Control" wire EDM
+  screen (SPACEX_MAGNET piece). No real machine connection - all values
+  are simulated client-side for visual effect only.
+- Animated scrolling "Speed" waveform chart and settling "depth" chart
+  (canvas 2D).
+- Animated analog "Z Clock" gauge (SVG needle sweep 0-0.045).
+- Live-ticking coordinate readout, data panel values, pulse counter,
+  and a scrolling fake activity log with real timestamps.
+- Blinking status lamp on the right rail.
+- Fixed 1920x1080 stage that auto-scales (letterboxed) to fill any
+  screen size - intended for a 1080p TV/kiosk display, opened full-screen
+  in a browser.
+- Pure HTML/CSS/JS, no build step, no dependencies. Deployable as a
+  static site (e.g. GitHub Pages) straight from v1.0/.
