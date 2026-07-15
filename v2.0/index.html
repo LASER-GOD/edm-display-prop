@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="app-version" content="2.0.0">
+<title>Systems Monitor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scaler" id="scaler">
+<div class="stage" id="stage">
+
+  <!-- Row 1 -->
+  <div class="cell chart-slot" id="chart-bar" style="grid-column:1/3; grid-row:1;"></div>
+  <div class="cell" id="compass" style="grid-column:3/5; grid-row:1;"></div>
+  <div class="cell lcd-block" id="lcdBlock" style="grid-column:5/9; grid-row:1/5;"></div>
+  <div class="cell gauge-slot" id="gauge-wind" style="grid-column:9/11; grid-row:1;"></div>
+  <div class="cell chart-slot" id="chart-wind" style="grid-column:11/13; grid-row:1;"></div>
+
+  <!-- Row 2 -->
+  <div class="cell chart-slot" id="chart-inv110" style="grid-column:1/3; grid-row:2;"></div>
+  <div class="cell gauge-slot" id="gauge-inv110" style="grid-column:3/5; grid-row:2;"></div>
+  <div class="cell gauge-slot" id="gauge-gen" style="grid-column:9/11; grid-row:2;"></div>
+  <div class="cell chart-slot" id="chart-gen" style="grid-column:11/13; grid-row:2;"></div>
+
+  <!-- Row 3 -->
+  <div class="cell chart-slot" id="chart-inv240" style="grid-column:1/3; grid-row:3;"></div>
+  <div class="cell gauge-slot" id="gauge-inv240" style="grid-column:3/5; grid-row:3;"></div>
+  <div class="cell gauge-slot" id="gauge-shore1" style="grid-column:9/11; grid-row:3;"></div>
+  <div class="cell chart-slot" id="chart-shore1" style="grid-column:11/13; grid-row:3;"></div>
+
+  <!-- Row 4 -->
+  <div class="cell misc-panel" id="miscPanel" style="grid-column:1/3; grid-row:4;"></div>
+  <div class="cell gauge-slot" id="gauge-housebat" style="grid-column:3/5; grid-row:4;"></div>
+  <div class="cell gauge-slot" id="gauge-shore2" style="grid-column:9/11; grid-row:4;"></div>
+  <div class="cell chart-slot" id="chart-shore2" style="grid-column:11/13; grid-row:4;"></div>
+
+  <!-- Row 5: tanks -->
+  <div class="cell tank-row" id="tankRow" style="grid-column:5/10; grid-row:5;"></div>
+
+  <!-- Row 6: button grid -->
+  <div class="cell button-bar" id="buttonBar" style="grid-column:1/13; grid-row:6;"></div>
+
+  <div class="underway">UNDERWAY</div>
+  <div class="credit">LASER GOD &middot; www.calasers.com</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,22 @@
 EDM Display Prop - Revision Log
 ================================
 
+v2.0.0 (2026-07-10)
+- Full rebuild in v2.0/, replacing the EDM-machine look with a dense
+  marine/boat "systems monitor" dashboard modeled on a reference
+  screenshot (Maretron/N2K-style panel): 7 round gauges with colored
+  band rings (110V/240V Inverter Amps, House Bat Amps, Wind Speed,
+  Gen Amps, Shore 1/2 Amps), 7 scrolling strip charts, a wind
+  direction compass, a 24-tile LCD readout block (temps, volts,
+  kWh counters, etc.), 8 tank-level bar gauges, a ~50-button toggle
+  grid (on/off/highlight states), a Boat Trim tile, a CHK button, and
+  an "UNDERWAY" status label - all client-side, no dependencies.
+- GitHub Pages workflow now deploys v2.0/ instead of v1.0/. The old
+  v1.0/ EDM-themed build stays in the repo for reference but is no
+  longer served.
+- Reused the scale-to-fit-1080p stage and the version.json auto-update
+  polling from v1.x.
+
 v1.2.1 (2026-07-10)
 - Shrunk the Z Clock gauge further (dial 250px -> 175px, window
   320px -> 230px wide) so it sits proportionally in its floating
